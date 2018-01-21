@@ -38,6 +38,24 @@ public class TestMap extends TestCase {
             put(100, null);
         }}, map);
     }
+    
+    public void test_long_value() throws IOException {
+    	final long timestamp = System.currentTimeMillis();
+    	Map<String, Object> map = JsonIterator.deserialize("{\"timestamp\":" + timestamp + "}", new TypeLiteral<Map<String, Object>>() {
+        });
+        assertEquals(new HashMap<String, Object>() {{
+            put("timestamp", timestamp);
+        }}, map);
+    }
+    
+    public void test_double_value() throws IOException {
+    	final double value = 123.0;
+    	Map<String, Object> map = JsonIterator.deserialize("{\"value\":" + value + "}", new TypeLiteral<Map<String, Object>>() {
+        });
+        assertEquals(new HashMap<String, Object>() {{
+            put("value", value);
+        }}, map);
+    }
 
     public static class TestObject1 {
         public int Field;

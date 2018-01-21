@@ -288,7 +288,16 @@ public class JsonIterator implements Closeable {
                 case STRING:
                     return readString();
                 case NUMBER:
-                    return readDouble();
+                    String number = IterImplForStreaming.readNumber(this);
+                    if(number.indexOf('.') > 0) {
+                        return Double.valueOf(number);
+                    } else if(number.indexOf('E') > 0) {
+                        return Double.valueOf(number);
+                    } else if(number.indexOf('e') > 0) {
+                        return Double.valueOf(number);
+                    } else {
+                        return Long.valueOf(number);
+                    }
                 case NULL:
                     IterImpl.skipFixedBytes(this, 4);
                     return null;

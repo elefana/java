@@ -9,3 +9,6 @@
 /android-demo/gradlew
 /android-demo/gradle
 /android-demo/gradlew.bat
+.classpath
+.project
+.settings/
