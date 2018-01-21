@@ -46,7 +46,7 @@ public class TestArray extends TestCase {
         });
         assertEquals(Arrays.asList(1), list);
         iter.reset(iter.buf);
-        assertArrayEquals(new Object[]{1.0}, iter.read(Object[].class));
+        assertArrayEquals(new Object[]{1L}, iter.read(Object[].class));
         iter.reset(iter.buf);
         assertEquals(1, iter.read(Any[].class)[0].toInt());
         iter.reset(iter.buf);
@@ -78,13 +78,13 @@ public class TestArray extends TestCase {
         });
         assertEquals(Arrays.asList(1, 2), list);
         iter.reset(iter.buf);
-        assertArrayEquals(new Object[]{1.0, 2.0}, iter.read(Object[].class));
+        assertArrayEquals(new Object[]{1L, 2L}, iter.read(Object[].class));
         iter.reset(iter.buf);
         assertEquals(1, iter.read(Any[].class)[0].toInt());
         iter.reset(iter.buf);
         assertEquals(1, iter.readAny().toInt(0));
         iter = JsonIterator.parse(" [ 1 , null, 2 ] ");
-        assertEquals(Arrays.asList(1.0D, null, 2.0D), iter.read());
+        assertEquals(Arrays.asList(1L, null, 2L), iter.read());
     }
 
     public void test_three_elements() throws IOException {
@@ -104,7 +104,7 @@ public class TestArray extends TestCase {
         });
         assertEquals(Arrays.asList(1, 2, 3), list);
         iter.reset(iter.buf);
-        assertArrayEquals(new Object[]{1.0, 2.0, 3.0}, iter.read(Object[].class));
+        assertArrayEquals(new Object[]{1L, 2L, 3L}, iter.read(Object[].class));
         iter.reset(iter.buf);
         assertEquals(1, iter.read(Any[].class)[0].toInt());
         iter.reset(iter.buf);
@@ -130,7 +130,7 @@ public class TestArray extends TestCase {
         });
         assertEquals(Arrays.asList(1, 2, 3, 4), list);
         iter.reset(iter.buf);
-        assertArrayEquals(new Object[]{1.0, 2.0, 3.0, 4.0}, iter.read(Object[].class));
+        assertArrayEquals(new Object[]{1L, 2L, 3L, 4L}, iter.read(Object[].class));
         iter.reset(iter.buf);
         assertEquals(1, iter.read(Any[].class)[0].toInt());
         iter.reset(iter.buf);
@@ -158,7 +158,7 @@ public class TestArray extends TestCase {
         });
         assertEquals(Arrays.asList(1, 2, 3, 4, 5), list);
         iter.reset(iter.buf);
-        assertArrayEquals(new Object[]{1.0, 2.0, 3.0, 4.0, 5.0}, iter.read(Object[].class));
+        assertArrayEquals(new Object[]{1L, 2L, 3L, 4L, 5L}, iter.read(Object[].class));
         iter.reset(iter.buf);
         assertEquals(1, iter.read(Any[].class)[0].toInt());
         iter.reset(iter.buf);
@@ -172,7 +172,11 @@ public class TestArray extends TestCase {
 
     public void test_boolean_array() throws IOException {
         JsonIterator iter = JsonIterator.parse("[true, false, true]");
-        assertArrayEquals(new boolean[]{true, false, true}, iter.read(boolean[].class));
+        boolean [] expected = new boolean[]{true, false, true};
+        boolean [] actual = iter.read(boolean[].class);
+        for(int i = 0; i < expected.length; i++) {
+            assertEquals(expected[i], actual[i]);
+        }
     }
 
     public void test_iterator() throws IOException {

@@ -355,12 +355,12 @@ public class TestObject extends TestCase {
         Config cfg = new Config.Builder()
                 .omitDefaultValue(true)
                 .build();
-        assertEquals("{\"l\":1,\"d\":1}", JsonStream.serialize(cfg, new TestObject17()));
+        assertEquals("{\"l\":1,\"d\":1.0}", JsonStream.serialize(cfg, new TestObject17()));
         cfg = new Config.Builder()
                 .omitDefaultValue(true)
                 .encodingMode(EncodingMode.DYNAMIC_MODE)
                 .build();
-        assertEquals("{\"l\":1,\"d\":1}", JsonStream.serialize(cfg, new TestObject17()));
+        assertEquals("{\"l\":1,\"d\":1.0}", JsonStream.serialize(cfg, new TestObject17()));
     }
 
     public static class TestObject18 {

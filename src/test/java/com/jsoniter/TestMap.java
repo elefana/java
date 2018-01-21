@@ -1,6 +1,5 @@
 package com.jsoniter;
 
-import com.jsoniter.extra.GsonCompatibilityMode;
 import com.jsoniter.spi.*;
 import junit.framework.TestCase;
 
@@ -74,14 +73,6 @@ public class TestMap extends TestCase {
         Map<TestObject1, Object> map = JsonIterator.deserialize("{\"100\":null}", new TypeLiteral<Map<TestObject1, Object>>() {
         });
         ArrayList<TestObject1> keys = new ArrayList<TestObject1>(map.keySet());
-        assertEquals(1, keys.size());
-        assertEquals(100, keys.get(0).Field);
-        // in new config
-        map = JsonIterator.deserialize(
-                new GsonCompatibilityMode.Builder().build(),
-                "{\"100\":null}", new TypeLiteral<Map<TestObject1, Object>>() {
-                });
-        keys = new ArrayList<TestObject1>(map.keySet());
         assertEquals(1, keys.size());
         assertEquals(100, keys.get(0).Field);
     }

@@ -2,12 +2,12 @@
 <project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
     <modelVersion>4.0.0</modelVersion>
-    <groupId>com.jsoniter</groupId>
+    <groupId>com.elefana</groupId>
     <version>0.9.21-SNAPSHOT</version>
     <artifactId>jsoniter</artifactId>
     <name>json iterator</name>
     <description>jsoniter (json-iterator) is fast and flexible JSON parser available in Java and Go</description>
-    <url>http://jsoniter.com</url>
+    <url>https://jsoniter.com</url>
     <packaging>jar</packaging>
 
     <licenses>
@@ -19,10 +19,10 @@
 
     <developers>
         <developer>
-            <name>Tao Wen</name>
-            <email>taowen@gmail.com</email>
-            <organization>jsoniter</organization>
-            <organizationUrl>http://jsoniter.com</organizationUrl>
+            <name>Thomas Cashman</name>
+            <email>thomascashman404@gmail.com</email>
+            <organization>elefana</organization>
+            <organizationUrl>https://elefana.com</organizationUrl>
         </developer>
     </developers>
 
@@ -158,7 +158,7 @@
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-gpg-plugin</artifactId>
-                <version>1.5</version>
+                <version>1.6</version>
                 <executions>
                     <execution>
                         <id>sign-artifacts</id>
